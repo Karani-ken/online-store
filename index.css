@@ -3,14 +3,15 @@
     padding: 0;
     box-sizing: border-box;
 }
-.home-page{
-    display: flex;
-}
+
 .sidebar{
+    position: fixed;
     background-color: rgb(170, 119, 25);
+    left: -250px;
     width: 250px;
     color: #fff;
     height: 100vh;
+    transition: all .2s ease;
 }
 .sidebar .logo{
     margin: 5px;
@@ -41,4 +42,44 @@
  .links ul li a:hover{
     color: blue;
     margin: 3px;
+ }
+ #check{
+    display: none;
+ }
+ label #btn, label #cancel{
+    position: absolute;
+    cursor: pointer;
+    background: #b38b09;
+    border-radius: 3px;
+ }
+ label #btn{
+    left: 40px;
+    top: 25px;
+    font-size: 35px;
+    color: white;
+    padding: 6px 12px;
+    transition: all .2s ease;
+ }
+ label #cancel{
+    z-index: 111;
+    left: -215px;
+    top: 5px;
+    font-size: 20px;
+    color: orange;
+    padding: 4px 9px;
+    transition: all .2s ease;
+ }
+ #check:checked ~ .sidebar{
+    left: 0;
+ }
+ #check:checked ~ label #btn{
+    left: 250px;
+    opacity: 0;
+    pointer-events: none;
+ }
+ #check:checked ~ label #cancel{
+    left: 215px;
+ }
+ #check:checked ~.products{
+    margin-left: 250px;
  }
